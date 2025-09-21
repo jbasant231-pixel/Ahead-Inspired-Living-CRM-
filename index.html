@@ -1,509 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahead Inspired Living - CRM</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahead Inspired Living - CRM</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-left">
-                <button class="sidebar-toggle" id="sidebarToggle">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
-                <div class="logo">
-                    <h1>Ahead Inspired Living</h1>
-                    <span class="subtitle">CRM System</span>
-                </div>
+<div class="app-container">
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <!-- hamburger icon -->
+            </button>
+            <div class="logo">
+                <h1>Ahead Inspired Living</h1>
+                <span class="subtitle">CRM System</span>
             </div>
-            <div class="header-right">
-                <button class="theme-toggle" id="themeToggle">
-                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="moon-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
-                <div class="notification-bell" id="notificationBell">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                    </svg>
-                    <span class="notification-badge hidden" id="notificationBadge">0</span>
-                </div>
-                <div class="user-profile">
-                    <div class="avatar">A</div>
-                    <span class="user-name">Admin</span>
-                </div>
+        </div>
+        <div class="header-right">
+            <button class="theme-toggle" id="themeToggle">
+                <svg class="sun-icon"></svg>
+                <svg class="moon-icon hidden"></svg>
+            </button>
+            <button class="refresh-btn" id="refreshBtn">⟳</button>
+            <div class="notification-bell" id="notificationBell">
+                <span class="notification-badge hidden" id="notificationBadge">0</span>
             </div>
-        </header>
+            <div class="user-profile" id="userProfileBtn">
+                <div class="avatar">A</div>
+                <span class="user-name" id="userName">Admin</span>
+            </div>
+        </div>
+    </header>
 
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <nav class="sidebar-nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active" data-page="dashboard">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="7" height="9"></rect>
-                                <rect x="14" y="3" width="7" height="5"></rect>
-                                <rect x="14" y="12" width="7" height="9"></rect>
-                                <rect x="3" y="16" width="7" height="5"></rect>
-                            </svg>
-                            Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-page="clients">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                            Clients
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-page="sales">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="12" y1="1" x2="12" y2="23"></line>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                            </svg>
-                            Sales & Leads
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-page="payments">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                                <line x1="1" y1="10" x2="23" y2="10"></line>
-                            </svg>
-                            Payments & EMI
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-page="sessions">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                            Sessions
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-page="reports">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="18" y1="20" x2="18" y2="10"></line>
-                                <line x1="12" y1="20" x2="12" y2="4"></line>
-                                <line x1="6" y1="20" x2="6" y2="14"></line>
-                            </svg>
-                            Reports
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link" data-page="settings">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="3"></circle>
-                                <path d="M12 1v6m0 6v6m6-7h-6M7 12H1"></path>
-                            </svg>
-                            Settings
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            
-            <!-- AI Assistant -->
-            <div class="ai-assistant">
-                <button class="ai-toggle" id="aiToggle">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
-                    </svg>
-                    AI Assistant
-                </button>
-            </div>
-        </aside>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+            <ul class="nav-list">
+                <li><a href="#" class="nav-link active" data-page="dashboard">Dashboard</a></li>
+                <li><a href="#" class="nav-link" data-page="clients">Clients</a></li>
+                <li><a href="#" class="nav-link" data-page="sales">Sales & Leads</a></li>
+                <li><a href="#" class="nav-link" data-page="payments">Payments & EMI</a></li>
+                <li><a href="#" class="nav-link" data-page="sessions">Sessions</a></li>
+                <li><a href="#" class="nav-link" data-page="reports">Reports</a></li>
+                <li><a href="#" class="nav-link" data-page="settings">Settings</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-        <!-- Main Content -->
-        <main class="main-content" id="mainContent">
-            <!-- Dashboard Page -->
-            <div class="page active" id="dashboard-page">
-                <div class="page-header">
-                    <h2>Dashboard</h2>
-                    <p>Welcome to your CRM dashboard. Let's build your business together!</p>
-                </div>
-                
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </div>
-                        <div class="metric-content">
-                            <h3 class="metric-number" id="totalClients">0</h3>
-                            <p class="metric-label">Total Clients</p>
-                        </div>
-                    </div>
-                    
-                    <div class="metric-card">
-                        <div class="metric-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                        </div>
-                        <div class="metric-content">
-                            <h3 class="metric-number" id="activeSessions">0</h3>
-                            <p class="metric-label">Active Sessions</p>
-                        </div>
-                    </div>
-                    
-                    <div class="metric-card">
-                        <div class="metric-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                                <line x1="1" y1="10" x2="23" y2="10"></line>
-                            </svg>
-                        </div>
-                        <div class="metric-content">
-                            <h3 class="metric-number" id="pendingPayments">0</h3>
-                            <p class="metric-label">Pending Payments</p>
-                        </div>
-                    </div>
-                    
-                    <div class="metric-card">
-                        <div class="metric-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="12" y1="1" x2="12" y2="23"></line>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                            </svg>
-                        </div>
-                        <div class="metric-content">
-                            <h3 class="metric-number" id="activeLeads">0</h3>
-                            <p class="metric-label">Active Leads</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="dashboard-widgets">
-                    <div class="widget">
-                        <div class="widget-header">
-                            <h3>Recent Activity</h3>
-                        </div>
-                        <div class="widget-content">
-                            <div class="empty-state">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                                </svg>
-                                <p>No recent activity. Start by adding your first client!</p>
-                                <button class="btn btn--primary" onclick="showPage('clients')">Add First Client</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="widget">
-                        <div class="widget-header">
-                            <h3>Upcoming Sessions</h3>
-                        </div>
-                        <div class="widget-content">
-                            <div class="empty-state">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                                <p>No sessions scheduled yet. Create your first session!</p>
-                                <button class="btn btn--primary" onclick="showPage('sessions')">Schedule Session</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Dashboard -->
+        <div class="page active" id="dashboard-page">
+            <div class="page-header">
+                <h2>Dashboard</h2>
             </div>
-
-            <!-- Clients Page -->
-            <div class="page" id="clients-page">
-                <div class="page-header">
-                    <div class="page-title">
-                        <h2>Clients</h2>
-                        <p>Manage your client relationships and track their progress</p>
-                    </div>
-                    <div class="page-actions">
-                        <button class="btn btn--primary" id="addClientBtn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                            Add Client
-                        </button>
-                    </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Total Income</h3>
+                    <p id="totalIncome">₹0</p>
                 </div>
-                
-                <div class="content-section">
-                    <div class="clients-list" id="clientsList">
-                        <div class="empty-state">
-                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                            <h3>No clients yet</h3>
-                            <p>Start building your business by adding your first client. All their information, progress, and session history will be tracked here.</p>
-                            <button class="btn btn--primary" id="addFirstClientBtn">Add Your First Client</button>
-                        </div>
-                    </div>
+                <div class="metric-card">
+                    <h3>Profit / Loss</h3>
+                    <p id="profitLoss">₹0</p>
                 </div>
-            </div>
-
-            <!-- Sales & Leads Page -->
-            <div class="page" id="sales-page">
-                <div class="page-header">
-                    <div class="page-title">
-                        <h2>Sales & Leads</h2>
-                        <p>Track your sales pipeline and convert leads into clients</p>
-                    </div>
-                    <div class="page-actions">
-                        <button class="btn btn--primary" id="addLeadBtn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                            </svg>
-                            Add Lead
-                        </button>
-                    </div>
+                <div class="metric-card">
+                    <h3>Pending Payments</h3>
+                    <p id="pendingPayments">0</p>
                 </div>
-                
-                <div class="sales-pipeline" id="salesPipeline">
-                    <div class="pipeline-stage" data-stage="new">
-                        <div class="stage-header">
-                            <h3>New Leads</h3>
-                            <span class="lead-count">0</span>
-                        </div>
-                        <div class="stage-content" id="newLeads">
-                            <div class="empty-stage">
-                                <p>No new leads</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="pipeline-stage" data-stage="qualified">
-                        <div class="stage-header">
-                            <h3>Qualified</h3>
-                            <span class="lead-count">0</span>
-                        </div>
-                        <div class="stage-content" id="qualifiedLeads">
-                            <div class="empty-stage">
-                                <p>No qualified leads</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="pipeline-stage" data-stage="proposal">
-                        <div class="stage-header">
-                            <h3>Proposal</h3>
-                            <span class="lead-count">0</span>
-                        </div>
-                        <div class="stage-content" id="proposalLeads">
-                            <div class="empty-stage">
-                                <p>No proposals sent</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="pipeline-stage" data-stage="won">
-                        <div class="stage-header">
-                            <h3>Won</h3>
-                            <span class="lead-count">0</span>
-                        </div>
-                        <div class="stage-content" id="wonLeads">
-                            <div class="empty-stage">
-                                <p>No deals won yet</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Other pages will be added in the JavaScript section for brevity -->
-            
-            <!-- Payments Page -->
-            <div class="page" id="payments-page">
-                <div class="page-header">
-                    <div class="page-title">
-                        <h2>Payments & EMI</h2>
-                        <p>Manage payments, EMI schedules, and financial tracking</p>
-                    </div>
-                    <div class="page-actions">
-                        <button class="btn btn--primary" id="addPaymentBtn">Add Payment</button>
-                        <button class="btn btn--secondary" id="createEMIBtn">Create EMI</button>
-                    </div>
-                </div>
-                
-                <div class="payments-content">
-                    <div class="empty-state">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                            <line x1="1" y1="10" x2="23" y2="10"></line>
-                        </svg>
-                        <h3>No payments recorded</h3>
-                        <p>Track all payments and set up EMI schedules for your clients</p>
-                        <button class="btn btn--primary" onclick="document.getElementById('addPaymentBtn').click()">Record First Payment</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sessions Page -->
-            <div class="page" id="sessions-page">
-                <div class="page-header">
-                    <div class="page-title">
-                        <h2>Sessions</h2>
-                        <p>Schedule and manage coaching sessions</p>
-                    </div>
-                    <div class="page-actions">
-                        <button class="btn btn--primary" id="addSessionBtn">Schedule Session</button>
-                    </div>
-                </div>
-                
-                <div class="sessions-content">
-                    <div class="empty-state">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                        <h3>No sessions scheduled</h3>
-                        <p>Schedule your first coaching session</p>
-                        <button class="btn btn--primary" onclick="document.getElementById('addSessionBtn').click()">Schedule First Session</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Reports Page -->
-            <div class="page" id="reports-page">
-                <div class="page-header">
-                    <h2>Reports & Analytics</h2>
-                    <p>Analyze your business performance and growth</p>
-                </div>
-                
-                <div class="reports-content">
-                    <div class="empty-state">
-                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                            <line x1="18" y1="20" x2="18" y2="10"></line>
-                            <line x1="12" y1="20" x2="12" y2="4"></line>
-                            <line x1="6" y1="20" x2="6" y2="14"></line>
-                        </svg>
-                        <h3>No data for reports</h3>
-                        <p>Reports will appear here as you add clients, sessions, and payments</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Settings Page -->
-            <div class="page" id="settings-page">
-                <div class="page-header">
-                    <h2>Settings</h2>
-                    <p>Configure your CRM preferences and integrations</p>
-                </div>
-                
-                <div class="settings-sections">
-                    <div class="settings-section">
-                        <h3>General Settings</h3>
-                        <div class="setting-item">
-                            <label class="form-label">Business Name</label>
-                            <input type="text" class="form-control" value="Ahead Inspired Living" readonly>
-                        </div>
-                        <div class="setting-item">
-                            <label class="form-label">Time Zone</label>
-                            <select class="form-control">
-                                <option>Asia/Kolkata (IST)</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="settings-section">
-                        <h3>Integrations</h3>
-                        <div class="integration-list">
-                            <div class="integration-item">
-                                <span>Payment Gateway (Razorpay)</span>
-                                <button class="btn btn--sm btn--outline">Configure</button>
-                            </div>
-                            <div class="integration-item">
-                                <span>WhatsApp Business</span>
-                                <button class="btn btn--sm btn--outline">Connect</button>
-                            </div>
-                            <div class="integration-item">
-                                <span>Google Calendar</span>
-                                <button class="btn btn--sm btn--outline">Connect</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <!-- Modal Container -->
-        <div class="modal hidden" id="modal">
-            <div class="modal-overlay" id="modalOverlay"></div>
-            <div class="modal-content" id="modalContent">
-                <!-- Dynamic content will be inserted here -->
             </div>
         </div>
 
-        <!-- Toast Notifications -->
-        <div class="toast-container" id="toastContainer"></div>
+        <!-- Clients Page -->
+        <div class="page" id="clients-page">
+            <h2>Clients</h2>
+            <button id="addClientBtn">Add Client</button>
+            <div id="clientsList"></div>
+        </div>
 
-        <!-- AI Assistant Panel -->
-        <div class="ai-panel hidden" id="aiPanel">
-            <div class="ai-header">
-                <h3>AI Assistant</h3>
-                <button class="ai-close" id="aiClose">×</button>
+        <!-- Payments Page -->
+        <div class="page" id="payments-page">
+            <h2>Payments & EMI</h2>
+            <button id="addPaymentBtn">Add Payment</button>
+            <button id="createEMIBtn">Create EMI</button>
+            <div id="paymentsList"></div>
+        </div>
+
+        <!-- Sessions Page -->
+        <div class="page" id="sessions-page">
+            <h2>Sessions</h2>
+            <button id="addSessionBtn">Schedule Session</button>
+            <div id="sessionsList"></div>
+        </div>
+
+        <!-- Reports Page -->
+        <div class="page" id="reports-page">
+            <h2>Reports</h2>
+            <div id="reportsContent"></div>
+        </div>
+
+        <!-- Settings Page -->
+        <div class="page" id="settings-page">
+            <h2>Settings</h2>
+            <div>
+                <h3>Profile</h3>
+                <label>Name</label>
+                <input type="text" id="profileName">
+                <label>Email</label>
+                <input type="email" id="profileEmail">
+                <label>Change Password</label>
+                <input type="password" id="profilePassword">
+                <button id="saveProfileBtn">Save Profile</button>
+                <button id="logoutBtn">Logout</button>
             </div>
-            <div class="ai-messages" id="aiMessages">
-                <div class="ai-message ai-message--assistant">
-                    <div class="message-content">
-                        Hi! I'm your AI assistant. I can help you with:
-                        <ul>
-                            <li>Finding client information</li>
-                            <li>Checking payment status</li>
-                            <li>Scheduling sessions</li>
-                            <li>Generating reports</li>
-                        </ul>
-                        Try asking: "Show me this week's EMI dues"
-                    </div>
-                </div>
-            </div>
-            <div class="ai-input">
-                <input type="text" placeholder="Ask me anything..." id="aiInput">
-                <button class="ai-send" id="aiSend">Send</button>
+            <div>
+                <h3>Integrations</h3>
+                <button class="integrationBtn" data-integration="gmail">Connect Gmail</button>
+                <button class="integrationBtn" data-integration="razorpay">Connect Razorpay</button>
+                <button class="integrationBtn" data-integration="calendar">Connect Google Calendar</button>
             </div>
         </div>
-    </div>
+    </main>
+</div>
 
-    <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
